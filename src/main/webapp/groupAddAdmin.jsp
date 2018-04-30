@@ -6,9 +6,9 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-Add a group:
+Add a group: <br>
 
-<form action="/addgroup">
+<form action="/addgroup" method="post">
 Group name: <input type="text" name="groupName">
     <input type="submit"><br>
 </form>

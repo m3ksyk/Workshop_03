@@ -7,7 +7,15 @@
 <body>
 <jsp:include page="header.jsp"/>
 
-edycja uzytkownika
+Edit user: ${"id"} <br>
+
+<form action="/edituser" method="get">
+    User name: <input type="text" name="name">
+    password: <input type="text" name="password">
+    email: <input type="text" name="email">
+    group id: <input type="text" name="user_group_id">
+    <input type="submit"><br>
+</form>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

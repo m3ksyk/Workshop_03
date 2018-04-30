@@ -8,6 +8,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+<br>
 <table>
     <tr>
         <th>Exercise</th>
@@ -18,9 +19,10 @@
 
     <c:forEach items="${solutions}" var="solution">
         <tr>
-            <td>${solution.exercise_id}</td>
-            <td>${solution.users_id}</td>
-            <td>${solution.updated}</td>
+            <td><c:out value="${solution.exercise_id}" /></td>
+            <td><c:out value="${solution.users_id}" /></td>
+            <td><c:out value="${solution.updated}" /></td>
+
             <td><a href='<c:url value="/solution.jsp?id=${solution.id}" />'>details</a></td>
         </tr>
     </c:forEach>

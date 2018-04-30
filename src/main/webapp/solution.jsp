@@ -6,9 +6,12 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
+Solution details: <<br>
+Exercise id: <c:out value="${solution. Exercise}" /><br>
+Created : <c:out value="${solution.created}" /><br>
+Updated: <c:out value="${solution.updated}" /><br>
+Description: <c:out value="${solution.description}" /><br>
 
-Szczegóły rozwiązania
-nazwa zadania, opis rozwiazania
 <jsp:include page="footer.jsp"/>
 
 </body>

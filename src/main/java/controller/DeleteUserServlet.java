@@ -1,11 +1,14 @@
 package controller;
 
+import pl.coderslab.models.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/deleteuser")
 public class DeleteUserServlet extends HttpServlet {
@@ -14,6 +17,13 @@ public class DeleteUserServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        int id = Integer.parseInt(request.getParameter("id"));
+        User UserToDel = new User();
+        UserToDel.setId(id);
+        try {
+            UserToDel.delete(DBUtil.getConnection());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

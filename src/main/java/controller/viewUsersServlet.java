@@ -24,7 +24,7 @@ public class viewUsersServlet extends HttpServlet {
             Connection conn = DBUtil.getConnection();
             User[] users = User.loadAllUsers(conn);
             request.setAttribute("users", users);
-            getServletContext().getRequestDispatcher("/users.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("users.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

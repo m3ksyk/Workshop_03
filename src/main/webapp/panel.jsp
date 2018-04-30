@@ -6,8 +6,8 @@
     <title>Admin Panel</title>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
-ADMIN PANEL
+<jsp:include page="header.jsp"/> <br>
+ADMIN PANEL <br>
 <a href='<c:url value="/exerciseAdmin.jsp" />'>Exercises</a> <br>
 <a href='<c:url value="/groupAdmin.jsp" />'>User Groups</a> <br>
 <a href='<c:url value="/userAdmin.jsp" />'>Users</a> <br>

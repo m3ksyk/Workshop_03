@@ -19,13 +19,16 @@ public class HomePageServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int limit = 5;
+        ArrayList<Solution> solutions = new ArrayList<>();
         try {
             Connection conn = DBUtil.getConnection();
-            ArrayList<Solution> solutions = Solution.loadAllSolutions(conn, limit);
+            solutions = Solution.loadAllSolutions(conn, limit);
             request.setAttribute("solutions", solutions);
             getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        request.setAttribute("solutions", solutions);
+        getServletContext().getRequestDispatcher("/index.jsp").forward(request, response);
     }
 }

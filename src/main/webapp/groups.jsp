@@ -12,10 +12,10 @@
         <th >group name</th>
         <th >actions</th>
     </tr>
-    sprawdzic czy link dziala poprawnie
     <c:forEach items="${groups}" var="group">
         <tr>
-            <td>${group.name}</td>
+            <td><c:out value="${group.name}" /></td>
+
             <td><a href='<c:url value="/groupUsers.jsp?id=${group.id}" />'>Users</a></td>
         </tr>
     </c:forEach>

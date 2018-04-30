@@ -1,6 +1,6 @@
 package controller;
 
-import pl.coderslab.models.Group;
+import pl.coderslab.models.Exercise;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,21 +10,20 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/deletegroup")
-public class DeleteGroupServlet extends HttpServlet {
+@WebServlet(name = "/addexercise")
+public class AddExerciseServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       int id = Integer.parseInt(request.getParameter("id"));
-       Group groupToDel = new Group();
-       groupToDel.setId(id);
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+        Exercise exercise = new Exercise(title, description);
         try {
-            groupToDel.delete(DBUtil.getConnection());
+            exercise.saveToDB(DBUtil.getConnection());
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 }

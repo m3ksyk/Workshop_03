@@ -7,7 +7,23 @@
 </head>
 <body>
 <jsp:include page="header.jsp"/>
-lista użytkowników grupy (tabela z nazwami użytkowników i "linkiem szczegóły")
+
+<table >
+    <tr>
+        <th > name</th>
+        <th >email</th>
+        <th >group</th>
+    </tr>
+    sprawdzic czy link dziala poprawnie
+    <c:forEach items="${users}" var="user">
+        <tr>
+            <td><c:out value="${user.name}" /></td>
+            <td><c:out value="${user.email}" /></td>
+            <td><c:out value="${user.group}" /></td>
+            <td><a href='<c:url value="/user.jsp?id=${user.id}" />'>Details</a></td>
+        </tr>
+    </c:forEach>
+</table>
 <jsp:include page="footer.jsp"/>
 </body>
 </html>

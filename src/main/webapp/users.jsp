@@ -5,8 +5,9 @@
     <title>Users</title>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
-
+<jsp:include page="header.jsp"/> <br>
+<%=  request.getAttribute("users")  %>
+<br>
 <table >
     <tr>
 
@@ -18,15 +19,15 @@
 
     <c:forEach items="${users}" var="user">
         <tr>
-            <td>${user.username}</td>
-            <td>${user.email}</td>
-            <td>${user.user_group_id}</td>
+            <td><c:out value="${user.username}" /></td>
+            <td><c:out value="${user.email}" /></td>
+            <td><c:out value="${user.user_group_id}" /></td>
 
         </tr>
     </c:forEach>
 </table>
 
 <jsp:include page="footer.jsp"/>
-dodac do listy uzytkownikow rozwiazania?
+
 </body>
 </html>
